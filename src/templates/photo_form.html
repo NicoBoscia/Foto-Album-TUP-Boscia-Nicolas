@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="modal fade" id="photoFormModal" tabindex="-1" aria-labelledby="photoFormModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="photoFormModalLabel">Nueva Foto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" enctype="multipart/form-data">
+          {{ form.hidden_tag() }}
+          <div class="mb-3">
+            <label for="title" class="form-label">Título</label>
+            {{ form.title(class="form-control", id="title") }}
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Descripción</label>
+            {{ form.description(class="form-control", id="description") }}
+          </div>
+          <div class="mb-3">
+            <label for="image_url" class="form-label">Imagen</label>
+            {{ form.image_url(class="form-control", id="image_url", type="file") }}
+          </div>
+          <button type="submit" class="btn btn-primary">Guardar Foto</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+

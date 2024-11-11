@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-5">Álbum de Fotos</h1>
+    <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#photoFormModal">Agregar Nueva Foto</button>
+
+    <div class="row mt-4">
+        {% for photo in photos %}
+        <div class="col-md-4">
+            <div class="card">
+                <img src="{{ photo.image_url }}" class="card-img-top" alt="Foto">
+                <div class="card-body">
+                    <h5 class="card-title">{{ photo.title }}</h5>
+                    <p class="card-text">{{ photo.description or 'No hay descripción disponible' }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+
